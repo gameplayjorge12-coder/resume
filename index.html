@@ -908,7 +908,12 @@
 
         /* ===== PRINT ===== */
         @media print {
-            body { background: #fff !important; color: #1a1a1a !important; }
+            body { 
+                background: #fff !important; 
+                color: #1a1a1a !important; 
+                -webkit-print-color-adjust: exact !important; 
+                print-color-adjust: exact !important; 
+            }
             #particles, .mesh-bg, .scroll-progress, .nav-dots, .watermark, .typing-cursor { display: none !important; }
             .resume { margin: 0; max-width: 100%; padding: 0; }
             .gradient-border { padding: 0; background: none !important; margin-bottom: 0; border: none; }
