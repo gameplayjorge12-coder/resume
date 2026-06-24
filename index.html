@@ -653,7 +653,7 @@
             font-weight: 800;
         }
 
-        .achv li strong { color: var(--tw); }
+        .achv li strong { color: var(--tw); font-weight: 700; }
 
         .t-used {
             display: flex;
@@ -908,31 +908,134 @@
 
         /* ===== PRINT ===== */
         @media print {
-            body { background: #fff; color: #1a1a1a; }
-            #particles, .mesh-bg, .scroll-progress, .nav-dots, .watermark { display: none !important; }
+            body { background: #fff !important; color: #1a1a1a !important; }
+            #particles, .mesh-bg, .scroll-progress, .nav-dots, .watermark, .typing-cursor { display: none !important; }
             .resume { margin: 0; max-width: 100%; padding: 0; }
-            .gradient-border { padding: 0; background: none; margin-bottom: 0; }
+            .gradient-border { padding: 0; background: none !important; margin-bottom: 0; border: none; }
             .gradient-border-inner, .header-inner {
-                background: #fff; border: 1px solid #e2e8f0;
+                background: #fff !important; border: 1px solid #e2e8f0;
                 border-radius: 0; backdrop-filter: none; break-inside: avoid;
             }
-            .gradient-border-inner::before { display: none; }
-            .header-name { -webkit-text-fill-color: #0f172a; font-size: 2rem; animation: none; }
-            .header-subtitle { color: #2563eb; }
-            .header-bio, .tl-desc, .achv li, .proj-desc, .know-desc, .diff-desc { color: #374151; }
-            .tech-cat, .proj-card, .know-card, .diff-card, .lang-card, .c-item, .stat-item {
-                background: #f8fafc; border-color: #e2e8f0;
+            .gradient-border-inner::before { display: none !important; }
+
+            /* === HEADER === */
+            .header-name {
+                -webkit-text-fill-color: #0f172a !important;
+                color: #0f172a !important;
+                font-size: 2.2rem;
+                animation: none !important;
+                background: none !important;
             }
-            .tt { background: #eef2ff; border-color: #c7d2fe; color: #1e1b4b; }
-            .tb { background: #ecfdf5; color: #065f46; border-color: #a7f3d0; }
-            .stat-number { -webkit-text-fill-color: #2563eb; }
+            .header-subtitle { color: #2563eb !important; }
+            .header-subtitle i { color: #2563eb !important; }
+            .header-bio { color: #374151 !important; }
+            .header-bio strong { color: #0f172a !important; -webkit-text-fill-color: #0f172a !important; }
+
+            /* === CONTATOS — FORÇAR ESCURO === */
+            .c-item { 
+                color: #1e293b !important; 
+                background: #f1f5f9 !important; 
+                border-color: #cbd5e1 !important;
+            }
+            .c-item span { color: #1e293b !important; }
+            .c-icon { box-shadow: none; }
+
+            /* === STATUS BADGE === */
+            .status { 
+                background: #ecfdf5 !important; 
+                border-color: #a7f3d0 !important;
+                animation: none !important;
+            }
+            .status span:last-child { color: #065f46 !important; }
+            .status-dot { animation: none !important; background: #10b981 !important; }
+
+            /* === STATS === */
+            .stat-item { background: #f8fafc !important; border-color: #e2e8f0 !important; }
+            .stat-number { 
+                -webkit-text-fill-color: #2563eb !important; 
+                color: #2563eb !important;
+                background: none !important;
+            }
+            .stat-label { color: #475569 !important; }
+
+            /* === CARDS (all) === */
+            .tech-cat, .proj-card, .know-card, .diff-card, .lang-card, .stat-item {
+                background: #f8fafc !important; border-color: #e2e8f0 !important;
+            }
+
+            /* === SECTION HEADERS === */
+            .sec-title { color: #0f172a !important; }
+            .sec-icon { box-shadow: none; }
+            .tc-title { color: #2563eb !important; }
+
+            /* === TECH TAGS === */
+            .tt { background: #eef2ff !important; border-color: #c7d2fe !important; color: #1e1b4b !important; }
+            .tt.hi { background: #dbeafe !important; color: #1e3a8a !important; border-color: #93c5fd !important; }
+            .tt i { color: inherit !important; }
+
+            /* === TIMELINE === */
+            .timeline::before { background: #c7d2fe !important; }
+            .tl-dot { border-color: #2563eb !important; background: #fff !important; box-shadow: none !important; }
+            .tl-role { color: #0f172a !important; }
+            .tl-company { color: #2563eb !important; }
+            .tl-date { 
+                color: #1e293b !important; 
+                background: #e2e8f0 !important; 
+                border-color: #cbd5e1 !important;
+                font-weight: 600 !important;
+            }
+            .tl-desc { color: #374151 !important; }
+
+            /* === ACHIEVEMENTS — FORÇAR TEXTO ESCURO === */
+            .achv li { color: #374151 !important; }
+            .achv li strong { 
+                color: #0f172a !important; 
+                -webkit-text-fill-color: #0f172a !important;
+                font-weight: 700 !important;
+            }
+            .achv li::before { color: #2563eb !important; }
+
+            /* === TECH BADGES === */
+            .tb { background: #ecfdf5 !important; color: #065f46 !important; border-color: #a7f3d0 !important; }
+
+            /* === PROJETOS === */
+            .proj-name { color: #0f172a !important; }
+            .proj-link { color: #2563eb !important; background: #eef2ff !important; }
+            .proj-desc { color: #374151 !important; }
+            .proj-feats li { color: #475569 !important; }
+            .proj-feats li::before { color: #059669 !important; }
+            .proj-card::after { display: none !important; }
+
+            /* === FORMAÇÃO === */
+            .know-title { color: #0f172a !important; }
+            .know-src { color: #2563eb !important; }
+            .know-desc { color: #475569 !important; }
+            .know-proof { color: #065f46 !important; background: #ecfdf5 !important; border-color: #a7f3d0 !important; }
+            .know-icon i { color: #2563eb !important; }
+
+            /* === DIFERENCIAIS === */
+            .diff-label { color: #0f172a !important; }
+            .diff-desc { color: #475569 !important; }
+
+            /* === IDIOMAS === */
+            .lang-name { color: #0f172a !important; }
+            .lang-level { color: #475569 !important; }
+            .lang-fill { background: #2563eb !important; }
+            .lang-bar { background: #e2e8f0 !important; }
+
+            /* === FOOTER === */
+            .footer-text { color: #64748b !important; }
+            .footer-text a { color: #2563eb !important; }
+            .footer-sub { color: #94a3b8 !important; }
+
+            /* === PREVENT ALL TRANSFORMS === */
             .tech-cat:hover, .proj-card:hover, .diff-card:hover, .c-item:hover,
-            .know-card:hover, .stat-item:hover { transform: none; box-shadow: none; }
-            .timeline::before { background: #c7d2fe; }
-            .tl-dot { border-color: #2563eb; background: #fff; }
-            .status-dot, .status { animation: none; }
+            .know-card:hover, .stat-item:hover, .lang-card:hover { 
+                transform: none !important; box-shadow: none !important; 
+            }
+
             .reveal, .stagger .s-child { opacity: 1 !important; transform: none !important; }
-            @page { margin: 0.4cm; size: A4; }
+            @page { margin: 0.5cm; size: A4; }
         }
 
         @media (max-width: 768px) {
@@ -1023,19 +1126,19 @@
         <!-- ========== STATS ========== -->
         <div class="stats-bar reveal">
             <div class="stat-item">
-                <div class="stat-number" data-count="3">0</div>
+                <div class="stat-number" data-count="3">3+</div>
                 <div class="stat-label">Anos de Dev</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number" data-count="15">0</div>
+                <div class="stat-number" data-count="15">15+</div>
                 <div class="stat-label">Projetos Entregues</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number" data-count="20">0</div>
+                <div class="stat-number" data-count="20">20+</div>
                 <div class="stat-label">Tecnologias</div>
             </div>
             <div class="stat-item">
-                <div class="stat-number" data-count="100">0%</div>
+                <div class="stat-number" data-count="100">100%</div>
                 <div class="stat-label">Remoto</div>
             </div>
         </div>
